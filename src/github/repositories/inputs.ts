@@ -75,7 +75,7 @@ export const DEFAULT_MAIN_BRANCH_PROTECTIONS: RepositoryRulesetRules = {
 
 export const REPOSITORIES = {
   abclang: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -86,7 +86,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   aerospace: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Aerospace config",
@@ -97,7 +97,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   borders: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Borders config",
@@ -108,7 +108,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "ccny-byte-hacks-2025": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "WINNER: BYTE Hacks 2025",
@@ -119,7 +119,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   codeforces: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -130,7 +130,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "Coolify-TypeScript-SDK": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description:
@@ -142,7 +142,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "csci-39548-final": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -153,7 +153,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   dotfiles: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "My config files",
@@ -164,7 +164,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   dots: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description:
@@ -176,7 +176,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   ginny: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -187,7 +187,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "go-example": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -198,7 +198,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "go-live-example": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -209,7 +209,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "hackrpi-project": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "HackRPI | Odyssey - To help you enjoy your daily commute",
@@ -220,7 +220,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "healing-hand": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Healing Hand Initiative Webpage",
@@ -231,7 +231,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   hunterhacks2025: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Hunter Hacks 2025 | AllerFree",
@@ -242,7 +242,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "instalock-web": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description:
@@ -284,7 +284,7 @@ export const REPOSITORIES = {
     },
   },
   "k8s-personal": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -295,7 +295,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   leetcode: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -306,7 +306,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "none-ls.nvim": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description:
@@ -318,7 +318,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   nvim: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "My Neovim config",
@@ -329,7 +329,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   omnis: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Infrastructure-as-code via Pulumi",
@@ -354,7 +354,7 @@ export const REPOSITORIES = {
     },
   },
   "open-api": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "A Monorepo of various packages to power OpenAPI in node",
@@ -365,7 +365,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "pantry-pal": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Pantry Pal",
@@ -376,7 +376,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "pg-aws": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -387,7 +387,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   pipeline: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "CICD pipeline script library",
@@ -409,7 +409,7 @@ export const REPOSITORIES = {
     },
   },
   portfolio: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "My portfolio site built in Next.js",
@@ -430,7 +430,7 @@ export const REPOSITORIES = {
     },
   },
   "ramp-fe-challenge-solved": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Ramp Frontend Challenge (Solved)",
@@ -441,7 +441,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "rift.lua": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "lua client for rift-wm",
@@ -452,7 +452,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   sapling: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description:
@@ -474,7 +474,7 @@ export const REPOSITORIES = {
     },
   },
   "simple-bar": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description:
@@ -486,7 +486,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   spotatui: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description:
@@ -498,7 +498,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "springboot-react-example": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Todo App built with SpringBoot and React",
@@ -509,7 +509,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   tahminator: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: undefined,
@@ -520,7 +520,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   templater: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "0-dependency Python script to create & use templates",
@@ -531,7 +531,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "todo-sq": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "A Todo App Integrated with Discord built with Next.js",
@@ -542,7 +542,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "type-fest": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "A collection of essential TypeScript types",
@@ -553,7 +553,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   ui: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description:
@@ -565,7 +565,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   "vitest-bug": {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Vitest Reproducible bug with pnpm",
@@ -576,7 +576,7 @@ export const REPOSITORIES = {
     mainBranchProtectionOverrides: {},
   },
   wezterm: {
-    bootstrap: true,
+    bootstrap: false,
     oldName: undefined,
     visibility: "public",
     description: "Wezterm config",
