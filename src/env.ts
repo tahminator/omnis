@@ -12,8 +12,11 @@ export function optional(key: string): string | undefined {
 
 export const env = {
   github: {
+    // APP
     appId: required("GITHUB_APP_APP_ID"),
     installationId: required("GITHUB_APP_INSTALLATION_ID"),
     pemContent: required("GITHUB_APP_PEM_CONTENT"),
+    // PAT
+    token: required("GITHUB_PAT"),
   },
 } as const;

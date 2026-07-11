@@ -1,11 +1,6 @@
 import type { RepositoryArgs } from "@pulumi/github";
 import type { RepositoryRulesetRules } from "@pulumi/github/types/input";
 
-import {
-  DEFAULT_SONARCLOUD_ANALYSIS_JOB_NAME,
-  GITHUB_APP_ID,
-} from "@/github/repositories/const";
-
 /**
  * Can be `public` or `private`.
  * If your organization is associated with an enterprise account
@@ -64,32 +59,59 @@ export const DEFAULT_MAIN_BRANCH_PROTECTIONS: RepositoryRulesetRules = {
   deletion: false,
   update: false,
   pullRequest: {
-    requiredApprovingReviewCount: 1,
+    requiredApprovingReviewCount: 0,
     dismissStaleReviewsOnPush: false,
     requireLastPushApproval: true,
     requireCodeOwnerReview: true,
     requiredReviewThreadResolution: true,
   },
   requiredStatusChecks: {
-    requiredChecks: [
-      // this check will be excluded if `monorepo: true` in repository config
-      {
-        context: DEFAULT_SONARCLOUD_ANALYSIS_JOB_NAME,
-        integrationId: GITHUB_APP_ID.sonarCloud,
-      },
-    ],
+    requiredChecks: [],
     strictRequiredStatusChecksPolicy: true,
   },
 };
 
 export const REPOSITORIES = {
-  "test-repo": {
-    description: "test",
-    bootstrap: false,
+  "0pengu.github.io": {
+    bootstrap: true,
+    oldName: undefined,
+    visibility: "private",
+    description: undefined,
+    monorepo: false,
+    collaborators: [],
+    mainBranchProtectionBypass: [],
+    repositorySettingOverrides: {},
+    mainBranchProtectionOverrides: {},
+  },
+  "A-stuff": {
+    bootstrap: true,
+    oldName: undefined,
+    visibility: "private",
+    description: "A stuff",
+    monorepo: false,
+    collaborators: [],
+    mainBranchProtectionBypass: [],
+    repositorySettingOverrides: {},
+    mainBranchProtectionOverrides: {},
+  },
+  abclang: {
+    bootstrap: true,
     oldName: undefined,
     visibility: "public",
+    description: undefined,
     monorepo: false,
-    collaborators: ["az2924"],
+    collaborators: [],
+    mainBranchProtectionBypass: [],
+    repositorySettingOverrides: {},
+    mainBranchProtectionOverrides: {},
+  },
+  aerospace: {
+    bootstrap: true,
+    oldName: undefined,
+    visibility: "public",
+    description: "Aerospace config",
+    monorepo: false,
+    collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
     mainBranchProtectionOverrides: {},
