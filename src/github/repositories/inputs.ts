@@ -297,7 +297,11 @@ export const REPOSITORIES = {
         bypassMode: "always",
       },
     ],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: {
+      allowSquashMerge: true,
+      allowRebaseMerge: false,
+      allowMergeCommit: false,
+    },
     mainBranchProtectionOverrides: {},
   },
   leetcode: {
