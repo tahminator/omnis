@@ -16,13 +16,6 @@ import { mergeWithConcatArrays } from "@/utils";
 
 type GithubRepositoryMap = Record<GithubRepositoryName, github.Repository>;
 
-/**
- * GitHub rulesets have no per-user bypass actor. On a personal account the owner
- * is a repository admin, so granting the built-in Admin role (`actorId: 5`) an
- * always-on bypass is the equivalent of "let me override this ruleset". This is
- * applied to every repository; additional per-repo actors come from
- * `mainBranchProtectionBypass`.
- */
 const OWNER_BYPASS_ACTOR = {
   actorType: "RepositoryRole",
   actorId: 5,
