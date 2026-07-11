@@ -1,6 +1,7 @@
 {
   "name": "omnis",
   "private": true,
+  "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "bun run typecheck && bun run fmt && bun run lint",
