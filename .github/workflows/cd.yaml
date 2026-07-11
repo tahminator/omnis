@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/github-workflow.json
+name: CD
+run-name: Running continuous deployment on ${{ github.actor }}'s commits
+
+on:
+  push:
+    tags:
+      - "*"
+
+concurrency:
+  # all cd shares same group so they must run/wait in order
+  # without it, we could end up corrupting pulumi state
+  group: cd
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    name: Reconcile Pulumi
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup pipeline
+        uses: ./.github/composite/setup
+        with:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          INSTALL_SOPS: true
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v5
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install deps
+        shell: bash
+        run: bun install --frozen-lockfile
+
+      - name: Run Pulumi Refresh
+        shell: bash
+        run: bun run .github/scripts/src/pulumi/refresh
+
+      - name: Run Pulumi Up
+        shell: bash
+        run: bun run .github/scripts/src/pulumi/up
