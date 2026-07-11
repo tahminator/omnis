@@ -290,7 +290,13 @@ export const REPOSITORIES = {
     description: undefined,
     monorepo: false,
     collaborators: [],
-    mainBranchProtectionBypass: [],
+    mainBranchProtectionBypass: [
+      {
+        actorType: "Integration",
+        actorId: GITHUB_APP_ID.tahmite,
+        bypassMode: "always",
+      },
+    ],
     repositorySettingOverrides: {},
     mainBranchProtectionOverrides: {},
   },
