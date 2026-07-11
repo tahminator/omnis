@@ -47,8 +47,8 @@ type RepositoryName = string;
 
 export const DEFAULT_REPOSITORY_SETTINGS: RepositoryArgs = {
   allowMergeCommit: false,
-  allowRebaseMerge: false,
-  allowSquashMerge: true,
+  allowRebaseMerge: true,
+  allowSquashMerge: false,
   deleteBranchOnMerge: true,
   allowAutoMerge: true,
 } as const;
