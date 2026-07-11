@@ -1,0 +1,10 @@
+stores:
+  yaml:
+    indent: 2
+creation_rules:
+  - path_regex: .*secret(s)?.*\.yaml
+    # <tahmid@tahmid.io>
+    # <ci@tahmid.io>
+    pgp: >-
+      311A18B60972303C558FFC6C9BA7DE47D7C15C96,
+      8152B0C0997AA5D37F6E112CE7C5A614030CCC00

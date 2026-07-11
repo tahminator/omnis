@@ -1,0 +1,4 @@
+name: omnis
+runtime: bun
+description: Infrastructure-as-code via Pulumi
+main: src
