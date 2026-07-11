@@ -26,7 +26,7 @@ type GithubRepositoryMap = Record<GithubRepositoryName, github.Repository>;
 const OWNER_BYPASS_ACTOR = {
   actorType: "RepositoryRole",
   actorId: 5,
-  bypassMode: "always",
+  bypassMode: "pull_request",
 } as const;
 
 const resolveBypassActors = (
@@ -126,6 +126,12 @@ export const githubRepositoryDefaultBranchRulesets = Object.entries(
             ),
         };
       }
+    }
+
+    // GitHub rejects a requiredStatusChecks block whose requiredChecks list is
+    // empty, so drop the block entirely when nothing is required.
+    if (protections.requiredStatusChecks?.requiredChecks.length === 0) {
+      delete protections.requiredStatusChecks;
     }
 
     return protections;
