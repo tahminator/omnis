@@ -83,7 +83,13 @@ export const REPOSITORIES = {
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
-    mainBranchProtectionOverrides: {},
+    mainBranchProtectionOverrides: {
+      requiredStatusChecks: {
+        requiredChecks: [
+          { context: "Run Tests", integrationId: GITHUB_APP_ID.githubActions },
+        ],
+      },
+    },
   },
   aerospace: {
     bootstrap: false,
