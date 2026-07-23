@@ -25,11 +25,12 @@ const OWNER_BYPASS_ACTOR = {
 const resolveBypassActors = (
   extra: readonly RepositoryRulesetBypassActor[],
 ) => [
-  OWNER_BYPASS_ACTOR,
-  ...extra.map((actor) => ({
-    ...actor,
-    bypassMode: actor.bypassMode ?? "always",
-  })),
+  ...new Map(
+    [OWNER_BYPASS_ACTOR, ...extra].map((actor) => [
+      `${actor.actorType}:${actor.actorId}`,
+      { ...actor, bypassMode: actor.bypassMode ?? "always" },
+    ]),
+  ).values(),
 ];
 
 const getRepositoryResourceName = (repositoryName: string) =>
