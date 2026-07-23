@@ -174,7 +174,13 @@ export const REPOSITORIES = {
     homepageUrl: undefined,
     monorepo: false,
     collaborators: [],
-    mainBranchProtectionBypass: [],
+    mainBranchProtectionBypass: [
+      {
+        actorType: "RepositoryRole",
+        actorId: 5,
+        bypassMode: "always",
+      },
+    ],
     repositorySettingOverrides: {},
     mainBranchProtectionOverrides: {},
   },
