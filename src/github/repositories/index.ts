@@ -105,11 +105,15 @@ export const githubRepositoryDefaultBranchRulesets = Object.entries(
 ).map(([repositoryName, repositoryConfig]) => {
   const repository = githubRepositories[repositoryName];
 
+  const requireLinearHistory = repositoryConfig.requireLinearHistory;
+
   const branchProtections = (() => {
     const protections = mergeWithConcatArrays(
       DEFAULT_MAIN_BRANCH_PROTECTIONS,
       repositoryConfig.mainBranchProtectionOverrides,
     ) as github.types.output.RepositoryRulesetRules;
+
+    protections.requiredLinearHistory = requireLinearHistory;
 
     if (repositoryConfig.monorepo) {
       if (protections.requiredStatusChecks) {
@@ -182,7 +186,7 @@ export const githubRepositoryDefaultBranchRulesets = Object.entries(
           },
         },
         rules: {
-          requiredLinearHistory: true,
+          requiredLinearHistory: requireLinearHistory,
         },
       },
       {

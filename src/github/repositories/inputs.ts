@@ -44,6 +44,7 @@ type GithubRepository = {
   mainBranchProtectionBypass: readonly RepositoryRulesetBypassActor[];
   /** if set to `true`, will exclude default `SonarCloud Code Analysis` status check. You are expected to register your own multi-scanner status checks instead. */
   monorepo: boolean;
+  requireLinearHistory: boolean;
 };
 
 type RepositoryName = string;
@@ -54,6 +55,12 @@ export const DEFAULT_REPOSITORY_SETTINGS: RepositoryArgs = {
   allowSquashMerge: false,
   deleteBranchOnMerge: true,
   allowAutoMerge: true,
+} as const;
+
+export const SQUASH_ONLY_MERGE_OVERRIDES: Partial<RepositoryArgs> = {
+  allowSquashMerge: true,
+  allowRebaseMerge: false,
+  allowMergeCommit: false,
 } as const;
 
 export const DEFAULT_MAIN_BRANCH_PROTECTIONS: RepositoryRulesetRules = {
@@ -82,6 +89,7 @@ export const REPOSITORIES = {
     description: "Custom interpreter written in Rust",
     homepageUrl: "https://abclang.tahmid.io",
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -100,6 +108,7 @@ export const REPOSITORIES = {
     description: "Aerospace config",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -112,6 +121,7 @@ export const REPOSITORIES = {
     description: "Borders config",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -124,9 +134,10 @@ export const REPOSITORIES = {
     description: "WINNER: BYTE Hacks 2025",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: false,
     collaborators: [],
     mainBranchProtectionBypass: [],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {},
   },
   codeforces: {
@@ -136,6 +147,7 @@ export const REPOSITORIES = {
     description: undefined,
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -149,6 +161,7 @@ export const REPOSITORIES = {
       "Developer-friendly & type-safe Typescript SDK specifically catered to leverage the Coolify API.",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -161,9 +174,10 @@ export const REPOSITORIES = {
     description: undefined,
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: false,
     collaborators: [],
     mainBranchProtectionBypass: [],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {},
   },
   dotfiles: {
@@ -173,6 +187,7 @@ export const REPOSITORIES = {
     description: "My config files",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: false,
     collaborators: [],
     mainBranchProtectionBypass: [
       {
@@ -181,7 +196,7 @@ export const REPOSITORIES = {
         bypassMode: "always",
       },
     ],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {},
   },
   dots: {
@@ -192,6 +207,7 @@ export const REPOSITORIES = {
       "Official DigitalOcean Typescript Client based on the DO OpenAPIv3 specification",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -204,6 +220,7 @@ export const REPOSITORIES = {
     description: undefined,
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -216,6 +233,7 @@ export const REPOSITORIES = {
     description: undefined,
     homepageUrl: "https://go.demo.tahmid.io/",
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -228,6 +246,7 @@ export const REPOSITORIES = {
     description: undefined,
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -240,9 +259,10 @@ export const REPOSITORIES = {
     description: "HackRPI | Odyssey - To help you enjoy your daily commute",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: false,
     collaborators: [],
     mainBranchProtectionBypass: [],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {},
   },
   "healing-hand": {
@@ -252,6 +272,7 @@ export const REPOSITORIES = {
     description: "Healing Hand Initiative Webpage",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -264,9 +285,10 @@ export const REPOSITORIES = {
     description: "Hunter Hacks 2025 | AllerFree",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: false,
     collaborators: [],
     mainBranchProtectionBypass: [],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {},
   },
   "instalock-web": {
@@ -277,9 +299,10 @@ export const REPOSITORIES = {
       "The web app that interacts with Valorant APIs, built with Express.js and React + Vite",
     homepageUrl: "https://instalock.app",
     monorepo: false,
+    requireLinearHistory: false,
     collaborators: [],
     mainBranchProtectionBypass: [],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {
       requiredStatusChecks: {
         requiredChecks: [
@@ -319,6 +342,7 @@ export const REPOSITORIES = {
     description: undefined,
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [
       {
@@ -327,11 +351,7 @@ export const REPOSITORIES = {
         bypassMode: "always",
       },
     ],
-    repositorySettingOverrides: {
-      allowSquashMerge: true,
-      allowRebaseMerge: false,
-      allowMergeCommit: false,
-    },
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {},
   },
   leetcode: {
@@ -341,6 +361,7 @@ export const REPOSITORIES = {
     description: undefined,
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [
       {
@@ -360,6 +381,7 @@ export const REPOSITORIES = {
       "null-ls.nvim reloaded / Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -372,6 +394,7 @@ export const REPOSITORIES = {
     description: "My Neovim config",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -384,6 +407,7 @@ export const REPOSITORIES = {
     description: "Infrastructure-as-code via Pulumi",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -410,6 +434,7 @@ export const REPOSITORIES = {
     description: "A Monorepo of various packages to power OpenAPI in node",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -422,6 +447,7 @@ export const REPOSITORIES = {
     description: "Pantry Pal",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -434,6 +460,7 @@ export const REPOSITORIES = {
     description: undefined,
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -446,6 +473,7 @@ export const REPOSITORIES = {
     description: "CICD pipeline script library",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -469,9 +497,10 @@ export const REPOSITORIES = {
     description: "My portfolio site built in Next.js",
     homepageUrl: "https://tahmid.io",
     monorepo: false,
+    requireLinearHistory: false,
     collaborators: [],
     mainBranchProtectionBypass: [],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {
       requiredStatusChecks: {
         requiredChecks: [
@@ -491,6 +520,7 @@ export const REPOSITORIES = {
     description: "Ramp Frontend Challenge (Solved)",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -503,6 +533,7 @@ export const REPOSITORIES = {
     description: "lua client for rift-wm",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -516,9 +547,10 @@ export const REPOSITORIES = {
       "A lightweight Express.js dependency injection & route abstraction library",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: false,
     collaborators: [],
     mainBranchProtectionBypass: [],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {
       requiredStatusChecks: {
         requiredChecks: [
@@ -538,6 +570,7 @@ export const REPOSITORIES = {
     description:
       "A yabai, AeroSpace or FlashSpace status bar widget for \u00dcbersicht",
     monorepo: false,
+    requireLinearHistory: true,
     homepageUrl: undefined,
     collaborators: [],
     mainBranchProtectionBypass: [],
@@ -552,9 +585,10 @@ export const REPOSITORIES = {
       "A fully standalone Spotify client for the terminal. Native streaming included, no daemon required.",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: false,
     collaborators: [],
     mainBranchProtectionBypass: [],
-    repositorySettingOverrides: {},
+    repositorySettingOverrides: { ...SQUASH_ONLY_MERGE_OVERRIDES },
     mainBranchProtectionOverrides: {},
   },
   "springboot-react-example": {
@@ -564,6 +598,7 @@ export const REPOSITORIES = {
     description: "Todo App built with SpringBoot and React",
     homepageUrl: "https://spring.demo.tahmid.io",
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -576,6 +611,7 @@ export const REPOSITORIES = {
     description: undefined,
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -588,6 +624,7 @@ export const REPOSITORIES = {
     description: "0-dependency Python script to create & use templates",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -600,6 +637,7 @@ export const REPOSITORIES = {
     description: "A Todo App Integrated with Discord built with Next.js",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -612,6 +650,7 @@ export const REPOSITORIES = {
     description: "A collection of essential TypeScript types",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -625,6 +664,7 @@ export const REPOSITORIES = {
       "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -637,6 +677,7 @@ export const REPOSITORIES = {
     description: "Vitest Reproducible bug with pnpm",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
@@ -649,6 +690,7 @@ export const REPOSITORIES = {
     description: "Wezterm config",
     homepageUrl: undefined,
     monorepo: false,
+    requireLinearHistory: true,
     collaborators: [],
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
