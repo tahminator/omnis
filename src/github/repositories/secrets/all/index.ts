@@ -3,7 +3,7 @@ import { EnvClient, EnvClientStrategy } from "@tahminator/pipeline";
 
 import { GITHUB_OWNER } from "@/github/inputs";
 import { provider } from "@/github/provider";
-import { REPOSITORIES } from "@/github/repositories/inputs";
+import { githubRepositories } from "@/github/repositories";
 
 const envClient = EnvClient.create(EnvClientStrategy.SOPS, {
   skipMasking: true,
@@ -23,9 +23,9 @@ const sharedSecrets = await envClient.readFromEnv("secrets.yaml", {
  * Personal accounts have no organization-wide Actions secrets, so each "shared"
  * secret is fanned out to every repository as a per-repository Actions secret.
  */
-export const githubSharedRepositoryActionsSecrets = Object.keys(
-  REPOSITORIES,
-).flatMap((repositoryName) =>
+export const githubSharedRepositoryActionsSecrets = Object.entries(
+  githubRepositories,
+).flatMap(([repositoryName, repository]) =>
   Object.entries(sharedSecrets).map(
     ([secretName, value]) =>
       new github.ActionsSecret(
@@ -35,7 +35,7 @@ export const githubSharedRepositoryActionsSecrets = Object.keys(
           secretName,
           value,
         },
-        { provider },
+        { provider, dependsOn: [repository] },
       ),
   ),
 );
