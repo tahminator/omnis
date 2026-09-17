@@ -696,6 +696,23 @@ export const REPOSITORIES = {
     repositorySettingOverrides: {},
     mainBranchProtectionOverrides: {},
   },
+  videre: {
+    bootstrap: false,
+    oldName: undefined,
+    visibility: "public",
+    description: undefined,
+    homepageUrl: "https://videre.tv",
+    monorepo: false,
+    requireLinearHistory: true,
+    collaborators: [],
+    mainBranchProtectionBypass: [],
+    repositorySettingOverrides: {},
+    mainBranchProtectionOverrides: {
+      requiredStatusChecks: {
+        requiredChecks: [],
+      },
+    },
+  },
 } as const satisfies Record<RepositoryName, GithubRepository>;
 
 export type GithubRepositoryName = keyof typeof REPOSITORIES;
