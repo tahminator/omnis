@@ -7,6 +7,7 @@ import { basename } from "node:path";
 
 import { GITHUB_OWNER } from "@/github/inputs";
 import { provider } from "@/github/provider";
+import { githubRepositories } from "@/github/repositories";
 import {
   REPOSITORIES,
   type GithubRepositoryName,
@@ -54,6 +55,7 @@ export const githubRepositoryActionsSecrets = (
             },
             {
               provider,
+              dependsOn: [githubRepositories[repositoryName]],
             },
           ),
       );
