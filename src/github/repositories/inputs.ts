@@ -613,7 +613,18 @@ export const REPOSITORIES = {
     monorepo: false,
     requireLinearHistory: true,
     collaborators: [],
-    mainBranchProtectionBypass: [],
+    mainBranchProtectionBypass: [
+      {
+        actorType: "RepositoryRole",
+        actorId: 5,
+        bypassMode: "always",
+      },
+      {
+        actorType: "Integration",
+        actorId: GITHUB_APP_ID.githubActions,
+        bypassMode: "always",
+      },
+    ],
     repositorySettingOverrides: {},
     mainBranchProtectionOverrides: {},
   },
