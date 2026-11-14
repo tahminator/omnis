@@ -113,6 +113,10 @@ export const githubRepositoryDefaultBranchRulesets = Object.entries(
 
     protections.requiredLinearHistory = requireLinearHistory;
 
+    if (!repositoryConfig.requirePullRequest) {
+      delete protections.pullRequest;
+    }
+
     if (repositoryConfig.monorepo) {
       if (protections.requiredStatusChecks) {
         protections.requiredStatusChecks = {
