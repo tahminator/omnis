@@ -93,7 +93,7 @@ export const githubRepositoryCollaborators = Object.entries(
           repository: repositoryConfig.oldName ?? repositoryName,
           username,
         },
-        { provider },
+        { dependsOn: githubRepositories[repositoryName], provider },
       ),
   );
 });
