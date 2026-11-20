@@ -755,6 +755,24 @@ export const REPOSITORIES = {
       },
     },
   },
+  fin: {
+    bootstrap: false,
+    oldName: undefined,
+    visibility: "public",
+    description: "Finance for two",
+    homepageUrl: undefined,
+    monorepo: false,
+    requireLinearHistory: true,
+    requirePullRequest: true,
+    collaborators: ["az2924"],
+    mainBranchProtectionBypass: [],
+    repositorySettingOverrides: {},
+    mainBranchProtectionOverrides: {
+      requiredStatusChecks: {
+        requiredChecks: [],
+      },
+    },
+  },
 } as const satisfies Record<RepositoryName, GithubRepository>;
 
 export type GithubRepositoryName = keyof typeof REPOSITORIES;
