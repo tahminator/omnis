@@ -768,8 +768,28 @@ export const REPOSITORIES = {
     mainBranchProtectionBypass: [],
     repositorySettingOverrides: {},
     mainBranchProtectionOverrides: {
+      pullRequest: {
+        requiredApprovingReviewCount: 1,
+      },
       requiredStatusChecks: {
-        requiredChecks: [],
+        requiredChecks: [
+          {
+            context: "Backend tests",
+            integrationId: GITHUB_APP_ID.githubActions,
+          },
+          {
+            context: "Frontend tests",
+            integrationId: GITHUB_APP_ID.githubActions,
+          },
+          {
+            context: "Test database migrations",
+            integrationId: GITHUB_APP_ID.githubActions,
+          },
+          {
+            context: "Build staging image",
+            integrationId: GITHUB_APP_ID.githubActions,
+          },
+        ],
       },
     },
   },
